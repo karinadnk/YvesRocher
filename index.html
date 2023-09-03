@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="image/x-icon" href="./images/favicon.png" rel="shortcut icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- убираю бутстраповские стили -->
+    <style>
+      .btn:focus {
+        box-shadow: none;
+      }
+      .accordion-button:focus {
+        box-shadow: none;
+      }
+    </style>
+    <title>Yves Rocher</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav
+      class="navbar navbar-expand-lg mb-2 navbar-dark"
+      style="background-color: #6f7e0d; z-index: 1"
+    >
+      <div class="container-fluid" style="width: 90%">
+        <a class="navbar-brand" style="width: 10rem; height: 10%" href="#"
+          ><img
+            src="./images/logo-yves.png"
+            style="width: 100%; height: 100%"
+            alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                id="reg-open"
+                >Регистрация</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                id="auth-open"
+                href="#"
+                >Войти</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                id="logOut"
+                href="#"
+                style="display: none"
+                >Выйти</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#catalog" id="cart">Каталог</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="userNick"></a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Поиск..."
+              aria-label="Search"
+              id="inpSearch"
+            />
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- для работы -->
+    <p class="container d-flex justify-content-center">
+      Админка: admin(логин), admin(почта), 1(пароль)
+    </p>
+
+    <!-- main -->
+    <div class="main">
+      <img src="./images/main.png" alt="" style="width: 100%" />
+    </div>
+    <!-- main end -->
+
+    <!-- admin panel -->
+    <div
+      class="accordion accordion-flush"
+      style="
+        max-width: 50%;
+        margin: 0 auto;
+        display: none;
+        border: solid #ba1051;
+      "
+      id="adminPanel"
+    >
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne"
+            aria-expanded="false"
+            aria-controls="flush-collapseOne"
+          >
+            Добавить товар (админ)
+          </button>
+        </h2>
+        <div
+          id="flush-collapseOne"
+          class="accordion-collapse collapse"
+          aria-labelledby="flush-headingOne"
+          data-bs-parent="#accordionFlushExample"
+        >
+          <div class="accordion-body">
+            <input
+              class="form-control me-2 mb-1"
+              type="text"
+              id="inpName"
+              placeholder="Название"
+              aria-label="Search"
+            />
+            <input
+              class="form-control me-2 mb-1"
+              type="text"
+              id="inpFormat"
+              placeholder="Формат"
+              aria-label="Search"
+            />
+            <input
+              class="form-control me-2 mb-1"
+              type="text"
+              id="inpImage"
+              placeholder="Изображение"
+              aria-label="Search"
+            />
+            <input
+              class="form-control me-2 mb-1"
+              type="number"
+              id="inpPrice"
+              placeholder="Цена"
+              aria-label="Search"
+            />
+            <select class="form-control me-2 mb-1" id="inpCategory">
+              <option>все</option>
+              <option>для лица</option>
+              <option>для волос</option>
+              <option>для тела</option>
+            </select>
+            <textarea
+              class="form-control me-2 mb-1"
+              id="inpDetails"
+              placeholder="Описание"
+              cols="30"
+              rows="10"
+            ></textarea>
+
+            <button type="button" class="btn btn-outline-primary" id="btnAdd">
+              Добавить товар
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Admin Panel end -->
+
+    <!-- filter -->
+    <section class="category container my-3">
+      <div
+        class="category-inner d-flex justify-content-center flex-wrap"
+        class="filterForm"
+      >
+        <button type="button" class="btn btn-outline-dark my-1 mx-1 filterAll">
+          все
+        </button>
+        <button type="button" class="btn btn-outline-dark my-1 mx-1 filterBtn">
+          для лица
+        </button>
+        <button type="button" class="btn btn-outline-dark my-1 mx-1 filterBtn">
+          для волос
+        </button>
+        <button type="button" class="btn btn-outline-dark my-1 mx-1 filterBtn">
+          для тела
+        </button>
+      </div>
+    </section>
+    <!-- filter end -->
+
+    <!-- Section Products -->
+    <section class="container mt-5" id="catalog">
+      <h2>Каталог товаров</h2>
+      <div
+        class="mx-auto d-flex flex-wrap align-content-center justify-content-center"
+        id="sectionProducts"
+      ></div>
+    </section>
+    <!-- Section Products end -->
+
+    <!-- Pagination -->
+    <nav
+      aria-label="Page navigation example"
+      style="display: flex; justify-content: center"
+    >
+      <ul class="pagination">
+        <li class="page-item p-2">
+          <a
+            class="page-link px-3"
+            href="#"
+            id="prevBtn"
+            style="background-color: #ba1051; color: white; font-size: 20px"
+            >&laquo</a
+          >
+        </li>
+        <li class="page-item p-2">
+          <a
+            class="page-link px-3"
+            href="#"
+            id="nextBtn"
+            style="background-color: #ba1051; color: white; font-size: 20px"
+            >&raquo</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- Pagination end -->
+
+    <!-- image section -->
+    <section class="container mt-5 image-section">
+      <div class="image-group-top">
+        <div>
+          <img src="./images/gift1.png" alt="photo" />
+          <img src="./images/gift2.png" alt="photo" />
+        </div>
+        <div>
+          <img src="./images/gift3.png" alt="photo" />
+          <img src="./images/gift4.png" alt="photo" />
+        </div>
+      </div>
+      <div class="image-group-bottom">
+        <img src="./images/gift5.png" alt="photo" />
+        <img src="./images/gift6.png" alt="photo" />
+      </div>
+    </section>
+    <!-- image section end -->
+
+    <!-- info section -->
+    <section class="container my-5 info-block">
+      <div class="info-card" style="background-color: #9ee3e0">
+        <div class="info-top">
+          <h5>ПРОГРАММА ЛОЯЛЬНОСТИ</h5>
+          <p>Моя карта мерси</p>
+          <a href="">УЗНАТЬ БОЛЬШЕ О КЛУБЕ ПРИВИЛЕГИЙ</a>
+        </div>
+        <div class="info-bottom">
+          <img src="./images/info1.png" alt="photo" />
+        </div>
+      </div>
+      <div class="info-card" style="background-color: #008680">
+        <div class="info-top" style="color: white">
+          <h5>В БУТИКАХ</h5>
+          <h5>⠀</h5>
+          <p>Предложим еще больше идей подарков</p>
+          <a href="" style="color: white">НАЙТИ БУТИК</a>
+        </div>
+        <div class="info-bottom">
+          <img src="./images/info2.png" alt="photo" />
+        </div>
+      </div>
+      <div class="info-card" style="background-color: #def1db">
+        <div class="info-top">
+          <h5>СПА-САЛОНЫ</h5>
+          <h5>⠀</h5>
+
+          <p>Процедуры для красоты и хорошего самочувствия</p>
+          <a href="">ПОДРОБНЕЕ</a>
+        </div>
+        <div class="info-bottom">
+          <img src="./images/info3.png" alt="photo" />
+        </div>
+      </div>
+    </section>
+    <!-- info section end -->
+
+    <!-- prefooter -->
+    <section class="prefooter">
+      <div class="container prefooter-body">
+        <div class="prefooter-block">
+          <img src="./images/prefooter1.png" alt="photo" />
+          <p>Подарки за покупки</p>
+        </div>
+        <div class="prefooter-block">
+          <img src="./images/prefooter2.png" alt="photo" />
+          <p>Гарантия возврата</p>
+        </div>
+        <div class="prefooter-block">
+          <img src="./images/prefooter3.png" alt="photo" />
+          <p>Доставка по всему Бишкеку</p>
+        </div>
+      </div>
+    </section>
+    <!-- prefooter end -->
+
+    <!-- footer -->
+    <section class="footer">
+      <div class="container footer-body">
+        <div><h4>Мы в социальных сетях</h4></div>
+        <div>
+          <img src="./images/ok.png" alt="photo" />
+          <img src="./images/telegram.png" alt="photo" />
+          <img src="./images/vk.png" alt="photo" />
+        </div>
+      </div>
+    </section>
+    <!-- footer end -->
+
+    <!-- Edit modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Изменить товар</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <input
+              class="form-control me-2 mb-1"
+              type="text"
+              id="editInpName"
+              placeholder="Название"
+              aria-label="Search"
+            />
+            <input
+              class="form-control me-2 mb-1"
+              type="text"
+              id="editInpFormat"
+              placeholder="Формат"
+              aria-label="Search"
+            />
+            <input
+              class="form-control me-2 mb-1"
+              type="text"
+              id="editInpImage"
+              placeholder="Изображение"
+              aria-label="Search"
+            />
+            <input
+              class="form-control me-2 mb-1"
+              type="number"
+              id="editInpPrice"
+              placeholder="Цена"
+              aria-label="Search"
+            />
+            <textarea
+              class="form-control me-2 mb-1"
+              id="editInpDetails"
+              placeholder="Описание"
+              aria-label="Search"
+            ></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary btnSave"
+              id="editBtnSave"
+              data-bs-dismiss="modal"
+              style="background-color: #ba1051"
+            >
+              Сохранить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit modal end -->
+
+    <!-- Details modal -->
+    <div id="detailsModal">
+      <div class="modal-details-inner">
+        <div class="modal-details-header">
+          <h4>Просмотр товара</h4>
+          <button id="detailsModalClose">&times</button>
+        </div>
+        <div id="detailsModalBody" style="display: flex"></div>
+      </div>
+    </div>
+    <!-- Details modal end -->
+
+    <!-- Registration -->
+    <div class="reg-modal">
+      <div class="reg-modal-inner">
+        <div class="reg-modal-header">
+          <h4>Регистрация</h4>
+          <button id="btnRegClose">&times</button>
+        </div>
+        <form class="reg-form">
+          <input type="text" id="regLogin" placeholder="логин" />
+          <input type="text" id="regMail" placeholder="почта" />
+          <input type="password" id="regPass" placeholder="пароль" />
+          <button id="btnReg">Зарегистрироваться</button>
+        </form>
+      </div>
+    </div>
+    <!-- Registration end -->
+
+    <!-- Authorization -->
+    <div class="auth-modal">
+      <div class="auth-modal-inner">
+        <div class="auth-modal-header">
+          <h4>Войти</h4>
+          <button id="btnAuthClose">&times</button>
+        </div>
+        <form class="auth-form">
+          <input type="text" id="authLogin" placeholder="логин" />
+          <input type="text" id="authMail" placeholder="почта" />
+          <input type="password" id="authPass" placeholder="пароль" />
+          <button id="btnAuth">Войти</button>
+        </form>
+      </div>
+    </div>
+    <!-- Authorization end -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./JS/main.js"></script>
+  </body>
+</html>
