@@ -1,0 +1,276 @@
+/* main */
+
+.main {
+  width: 60%;
+  display: flex;
+  margin: 2% auto;
+}
+
+/* main end */
+
+/* details modal */
+
+#detailsModal {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.modal-details-inner {
+  width: 90%;
+  height: 90%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.modal-details-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5% 5% 2% 5%;
+  margin-bottom: 3%;
+}
+
+#detailsModalClose {
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+/* details modal end */
+
+/* registration modal */
+.reg-modal {
+  z-index: 10;
+
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.reg-modal-inner {
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+.reg-modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reg-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reg-form input {
+  margin: 4%;
+  padding: 2%;
+}
+
+#btnRegClose {
+  background-color: #ba1051;
+  color: white;
+  border-radius: 3px;
+  height: 30px;
+}
+
+#btnReg {
+  margin-top: 3%;
+  background-color: #ba1051;
+  border-radius: 5px;
+  color: white;
+  padding: 3%;
+}
+
+/* registration modal end */
+
+/* authorization modal */
+.auth-modal {
+  z-index: 2;
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-modal-inner {
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 1%;
+}
+
+.auth-modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form input {
+  margin: 4%;
+  padding: 2%;
+}
+
+#btnAuthClose {
+  background-color: #ba1051;
+  color: white;
+  border-radius: 3px;
+  height: 30px;
+}
+
+#btnAuth {
+  margin-top: 3%;
+  background-color: #ba1051;
+  border-radius: 5px;
+  color: white;
+  padding: 3%;
+}
+
+/* authorization modal end */
+
+/* image section */
+
+.image-group-top img {
+  width: 100%;
+  padding: 1%;
+}
+
+.image-group-top {
+  display: flex;
+}
+
+.image-group-bottom img {
+  width: 100%;
+  padding: 1%;
+}
+
+/* image section end */
+
+/* info section */
+
+.info-block {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.info-block a {
+  color: black;
+}
+
+.info-card {
+  width: 300px;
+  height: 300px;
+  background-color: aqua;
+  margin: 0.5%;
+  border-radius: 20px;
+}
+
+.info-top {
+  margin: 7%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.info-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.info-bottom img {
+  width: 80%;
+  border-radius: 20px;
+}
+
+/* info section end */
+
+/* prefooter */
+
+.prefooter {
+  width: 100%;
+  height: 10%;
+  background-color: #f0f2e6;
+  margin-top: 12%;
+}
+
+.prefooter-body {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  height: 80%;
+  flex-wrap: wrap;
+}
+
+.prefooter-block img {
+  width: 100px;
+}
+
+.prefooter-block {
+  text-align: center;
+  margin: 0 5%;
+}
+
+/* prefooter end */
+
+/* footer */
+
+.footer {
+  width: 100%;
+  background-color: #6f7e0d;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-body img {
+  width: 50px;
+}
+
+@media (max-width: 1000px) {
+  .image-group-top {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
